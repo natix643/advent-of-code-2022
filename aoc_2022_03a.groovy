@@ -1,5 +1,3 @@
-import java.awt.AlphaComposite
-
 testInput = '''
 vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
