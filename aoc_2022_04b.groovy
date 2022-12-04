@@ -9,10 +9,10 @@ testInput = '''
 realInput = new File(/C:\Users\jirka\IdeaProjects\advent-of-code-2022\aoc_2022_04.txt/)
 lines = realInput.readLines().findAll()
 
-lines.collect { line ->
+lines.count { line ->
     def (left, right) = line.split(',').collect { assignment ->
         def (from, to) = assignment.split('-')*.toInteger()
         from..to
     }
     left.intersect(right)
-}.count { it }
+}
