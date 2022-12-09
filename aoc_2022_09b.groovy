@@ -1,18 +1,14 @@
 import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
-import groovy.transform.TupleConstructor
 
 class Config {
-    static radius = 20
-
-    static draw = false
+    static draw = true
     static drawInPlace = true
-    static drawPeriod = 1
-
-    static testInput = false
-    static maxSteps = 2000
-
+    static drawPeriod = 100
+    static radius = 10
     static showVisited = true
+
+    static testInput = true
+    static maxSteps = 100
 }
 
 testInput = '''
@@ -29,12 +25,10 @@ realInput = new File(/C:\Users\jirka\IdeaProjects\advent-of-code-2022\aoc_2022_0
 lines = (Config.testInput ? testInput : realInput).readLines().findAll().take(Config.maxSteps)
 
 @EqualsAndHashCode(includes = ['x', 'y'])
-@ToString
 class Point {
     int x = 0
     int y = 0
     String name
-    Point next
 
     boolean touches(Point that) {
         return this != that &&
@@ -54,16 +48,11 @@ class Layout {
     Point start = new Point(name: 's')
 
     List<Point> snake
-
     Set<Point> visited = []
 
     Layout() {
         this.snake = (['H'] + (1..9)).collect {
             new Point(name: it)
-        }
-        this.snake.inject { a, b ->
-            b.next = a
-            return b
         }
         this.visited << tail.copy()
     }
@@ -173,7 +162,6 @@ class Layout {
 
 layout = new Layout(radius: Config.radius)
 layout.print()
-
 
 lines.each { line ->
     if (Config.draw && !Config.drawInPlace) {

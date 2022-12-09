@@ -2,16 +2,14 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.TupleConstructor
 
 class Config {
-    static radius = 5
-
     static draw = true
     static drawInPlace = true
     static drawPeriod = 100
+    static radius = 5
+    static showVisited = true
 
     static testInput = false
     static maxSteps = 100
-
-    static showVisited = true
 }
 
 testInput = '''
