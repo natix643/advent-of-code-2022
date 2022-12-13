@@ -60,8 +60,8 @@ def compare(int left, List right) {
     return compare([left], right)
 }
 
-def divider1 = [[2]]
-def divider2 = [[6]]
+divider1 = [[2]]
+divider2 = [[6]]
 
 lists = lines.collect {
     new JsonSlurper().parse(new StringReader((it))) as List
