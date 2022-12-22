@@ -32,7 +32,7 @@ trait Node {
 
     abstract boolean hasHuman()
 
-    abstract void computeHuman(double value = 0)
+    abstract void computeHuman(double value)
 
     abstract void printTree(int indent = 0)
 }
@@ -171,5 +171,5 @@ def nodes = parse(lines)
 def root = nodes[Name.ROOT]
 def human = nodes[Name.HUMAN]
 
-root.computeHuman()
+root.computeHuman(0)
 println human.value.toBigDecimal()
