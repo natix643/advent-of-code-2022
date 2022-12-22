@@ -69,18 +69,18 @@ println 'Initial arrangement:'
 println targetNumbers
 
 sourceNumbers.each { reference ->
-    def number = reference.number
-//    println "\n$number moves"
+    def shift = reference.number % (targetNumbers.size() - 1)
+//    println "\n${reference.number} moves"
 
-    if (number > 0) {
+    if (shift > 0) {
         def index = targetNumbers.indexOf(reference)
-        number.times {
+        shift.times {
             index = shiftRight(targetNumbers, index)
 //            println targetNumbers
         }
     } else {
         def index = targetNumbers.indexOf(reference)
-        number.abs().times {
+        shift.abs().times {
             index = shiftLeft(targetNumbers, index)
 //            println targetNumbers
         }
